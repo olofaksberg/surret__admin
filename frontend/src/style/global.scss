@@ -1,0 +1,221 @@
+/** @format */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+$mainBlue: #e8f0fe;
+$mainBlue_sharp: rgb(46, 98, 189);
+$mainGray: #2b2b2b;
+
+$mainRed: rgb(255, 118, 118);
+
+$fontGreyLL: rgb(221, 221, 221);
+$fontGreyL: rgb(204, 204, 204);
+$fontGreyM: rgb(161, 160, 160);
+$fontGreyMD: rgb(126, 126, 126);
+$fontGreyD: rgb(97, 96, 96);
+$fontGreyDD: rgb(65, 65, 65);
+
+* {
+ padding: 0;
+ margin: 0;
+ box-sizing: border-box;
+ font-family: "Poppins", sans-serif;
+ color: $fontGreyDD;
+ word-break: break-word;
+}
+
+// animations
+@keyframes showAni {
+ 0% {
+  transform: translateX(10px);
+  opacity: 0;
+ }
+ 100% {
+  transform: translateX(0px);
+  opacity: 1;
+ }
+}
+
+.show-ani {
+ animation: showAni 0.4s ease-out forwards;
+}
+
+@keyframes wiggle {
+ 0% {
+  transform: rotate(0deg) scale(1);
+ }
+ 25% {
+  transform: rotate(-10deg) scale(0.95) translate(2px, 4px);
+ }
+ 50% {
+  transform: rotate(0deg) scale(1.05) translate(-3px, -2px);
+ }
+ 60% {
+  transform: rotate(5deg) scale(1) translate(1px, -5px);
+ }
+ 75% {
+  transform: rotate(10deg) scale(0.95) translate(-4px, 5px);
+ }
+ 100% {
+  transform: rotate(0deg) scale(1) translate(0px, 0px);
+ }
+}
+
+.wiggle {
+ animation: wiggle 3.5s linear infinite forwards;
+}
+
+// helpers
+$spaceamounts: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+$sides: (top, bottom, left, right);
+@each $space in $spaceamounts {
+ .p-#{$space} {
+  padding: #{$space}rem !important;
+ }
+ .m-#{$space} {
+  margin: #{$space}rem !important;
+ }
+
+ .FG-#{$space} {
+  gap: #{$space}rem !important;
+ }
+
+ @each $side in $sides {
+  .m-#{$side}-#{$space} {
+   margin-#{$side}: #{$space}rem !important;
+  }
+  .p-#{$side}-#{$space} {
+   padding-#{$side}: #{$space}rem !important;
+  }
+
+  .pos-A-#{$side}-#{$space} {
+   #{$side}: #{$space}rem !important;
+  }
+ }
+}
+
+// flex
+.flex {
+ display: flex;
+
+ &.JC-SB {
+  justify-content: space-between;
+ }
+
+ &.JC-SA {
+  justify-content: space-around;
+ }
+
+ &.JC-SE {
+  justify-content: space-evenly;
+ }
+
+ &.JC-C {
+  justify-content: center;
+ }
+
+ &.JC-E {
+  justify-content: flex-end;
+ }
+
+ &.FW-wrap {
+  flex-wrap: wrap;
+ }
+
+ &.FD-C {
+  flex-direction: column;
+ }
+}
+
+// general
+.w-50 {
+ width: 50%;
+}
+
+.w-100 {
+ width: 100%;
+}
+
+.w-FT {
+ width: fit-content;
+}
+
+.h-50 {
+ height: 50%;
+}
+
+.h-100 {
+ height: 100%;
+}
+
+.OF-H {
+ overflow: hidden;
+}
+
+.TT-UC {
+ text-transform: uppercase;
+}
+
+.TA-C {
+ text-align: center;
+}
+
+.TA-L {
+ text-align: left;
+}
+
+.TD-U {
+ text-decoration: underline;
+}
+.TD-N {
+ text-decoration: none;
+}
+
+.AI-C {
+ align-items: center;
+}
+
+.FW-bold {
+ font-weight: bold;
+}
+
+.pos-R {
+ position: relative;
+}
+
+.pos-A {
+ position: absolute;
+}
+
+.pointer {
+ cursor: pointer;
+}
+
+//  font color
+.FC-G-LL {
+ color: $fontGreyLL;
+}
+
+.FC-G-L {
+ color: $fontGreyL;
+}
+
+.FC-G-M {
+ color: $fontGreyM;
+}
+
+.FC-G-MD {
+ color: $fontGreyMD;
+}
+
+.FC-G-D {
+ color: $fontGreyD;
+}
+
+.FC-G-DD {
+ color: $fontGreyDD;
+}
+
+.FC-white {
+ color: white;
+}
