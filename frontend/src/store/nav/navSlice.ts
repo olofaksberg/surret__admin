@@ -1,18 +1,11 @@
 /** @format */
 
-// imports
-// - general
 import { createSlice } from "@reduxjs/toolkit";
 
-// - utils
-import { clientEndpoints } from "../../constants";
+import { clientEndpoints } from "@/constants";
 
-import { IinitState } from "./navSlice.types"
 import { stateActions } from "./reducers"
-
-// - config
-// ---
-
+import { IinitState } from "./navSlice.types"
 
 const initialState: IinitState = {
   active: null,

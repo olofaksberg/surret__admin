@@ -2,7 +2,8 @@
 
 import styled from "styled-components";
 
-import { colors } from "../../../../style";
+import { colors } from "@/style";
+
 import { IInputTextareaProps } from "./inputTextarea.types";
 
 const Div = styled.div<IInputTextareaProps>`
@@ -30,10 +31,10 @@ const Div = styled.div<IInputTextareaProps>`
     transition: all 0.1s ease-in;
     color: $label;
     ${(props) => {
-        if (props.value !== "") {
-            return "transform: translateY(-150%); left: 0; top: 0;";
-        }
-    }}
+    if (props.value !== "") {
+      return "transform: translateY(-150%); left: 0; top: 0;";
+    }
+  }}
   }
 
   ${(props) => props.customStyle}

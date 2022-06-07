@@ -1,4 +1,4 @@
-import { IorderModel, orderCategories } from "../../../../constants";
+import { IorderModel, orderCategories } from "@/constants";
 
 
 const getSortDateStr = (sortStr: string) => {

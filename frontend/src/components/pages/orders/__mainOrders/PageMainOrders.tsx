@@ -1,38 +1,32 @@
 /** @format */
 
-// imports
-// - general
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// - components
+
 import { OrdersNav } from "./components";
 import { Order } from "../components";
-import { Header, Popup } from "../../../layouts";
-import { If } from "../../../helpers";
-// - config
-// - constants
-import {
- clientEndpoints,
- orderCategories,
- statuses,
-} from "../../../../constants";
-// - utils
-// - store
+
+import { Header, Loading } from "@/components/layouts";
+import { If } from "@/components/helpers";
+
+import { clientEndpoints, orderCategories } from "@/constants";
+
+import { useOrders } from "../utils";
+
 import { ordersFetches, ordersData } from "@/store/orders";
-import { navActions } from "../../../../store/nav/navSlice";
-// - style
+import { navActions } from "@/store/nav";
+
 import { Styled } from "./pageMainOrders.styled";
 import { IPageMainOrdersProps } from "./pageMainOrders.types";
 
-import { useOrders } from "../utils/hooks";
-// ---
-
 export const PageMainOrders = (props: IPageMainOrdersProps) => {
  const dispatch = useDispatch();
- const { fetchUpdateOrderSeenStatus } = ordersFetches;
+
  const [ordersFilter, setOrdersFilter] = useOrders(orderCategories.ACTIVE);
- const { ordersStatus, orders } = useSelector(ordersData);
+
  const { setActive } = useSelector(navActions);
+ const { ordersStatus, orders } = useSelector(ordersData);
+ const { fetchUpdateOrderSeenStatus } = ordersFetches;
 
  const unseen = orders
   .filter((d: any) => !d.status.seen)
@@ -45,25 +39,16 @@ export const PageMainOrders = (props: IPageMainOrdersProps) => {
   }
  }, [ordersStatus]);
 
- if (ordersStatus !== statuses.SUCCEEDED) {
-  return <h2>hämtar ordrar..</h2>;
- }
- console.log(orders);
+ //  if (ordersStatus !== statuses.SUCCEEDED) {
+ //   return <Loading />;
+ //  }
 
  return (
   <Styled.Section {...props}>
-   {/* popup */}
-   {/* <If condition={ordersMessage}>
-        <Popup message={ordersMessage} page={"orders"} />
-      </If> */}
-
-   {/* header */}
    <Header title="Ordrar" />
 
-   {/* orders nav */}
    <OrdersNav ordersState={{ ordersFilter, setOrdersFilter }} />
 
-   {/* orders */}
    <section className="orders-container flex FD-C FG-2">
     {orders
      .filter((d: any) => d.status.orderStatus === ordersFilter)
@@ -80,26 +65,3 @@ export const PageMainOrders = (props: IPageMainOrdersProps) => {
   </Styled.Section>
  );
 };
-
-// const OrdersNav = ({ ordersFilterState }) => {
-//   return (
-//     <div className="orders-nav flex JC-C FG-2">
-//       <h3
-//         className={`orders-nav-item pointer ${
-//           ordersFilterState.ordersFilter === orderTypes.ACTIVE ? "active" : ""
-//         }`}
-//         onClick={() => ordersFilterState.setOrdersFilter(orderTypes.ACTIVE)}
-//       >
-//         Mottagna ordrar
-//       </h3>
-//       <h3
-//         className={`orders-nav-item pointer ${
-//           ordersFilterState.ordersFilter === orderTypes.OLD ? "active" : ""
-//         }`}
-//         onClick={() => ordersFilterState.setOrdersFilter(orderTypes.OLD)}
-//       >
-//         Arkiverade ordrar
-//       </h3>
-//     </div>
-//   );
-// };

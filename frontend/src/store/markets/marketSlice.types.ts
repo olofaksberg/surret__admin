@@ -1,4 +1,4 @@
-import { ImarketModel } from "../../constants";
+import { ImarketModel } from "@/constants";
 
 export interface IinitState {
     markets: Array<ImarketModel>,

@@ -2,7 +2,8 @@
 
 import styled from "styled-components";
 
-import { colors } from "../../../../../../style";
+import { colors } from "@/style";
+
 import { IOrdersNavProps } from "./ordersNav.types";
 
 const Nav = styled.nav<IOrdersNavProps>`

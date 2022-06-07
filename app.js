@@ -33,7 +33,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.use("/", express.static("./frontend/build"));
+app.use("/", express.static("./frontend/public"));
 app.use("/protected", protectedMw, protectedRouter);
 app.use("/", index);
 

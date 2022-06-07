@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-import { colors } from "../../../../style"
+import { colors } from "@/style"
+
 import { IButtonBackProps } from "./buttonBack.types";
 
 const Button = styled.button<IButtonBackProps>`
@@ -21,6 +22,8 @@ const Button = styled.button<IButtonBackProps>`
       color: ${colors.fontGreyMD};
     }
   }
+
+  ${(props) => props.customStyle}
 `;
 
 export const Styled = { Button };

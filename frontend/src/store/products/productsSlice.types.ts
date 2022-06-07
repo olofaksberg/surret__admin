@@ -1,4 +1,4 @@
-import { IproductModel } from "../../constants";
+import { IproductModel } from "@/constants";
 
 export interface IinitState {
     products: Array<IproductModel>,

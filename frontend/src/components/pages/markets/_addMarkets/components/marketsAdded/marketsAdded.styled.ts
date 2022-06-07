@@ -1,9 +1,9 @@
 /** @format */
-/** @format */
 
 import styled from "styled-components";
 
-import { colors } from "../../../../../../style";
+import { colors } from "@/style";
+
 import { IMarketsAddedProps } from "./marketsAdded.types";
 
 const Section = styled.section<IMarketsAddedProps>`

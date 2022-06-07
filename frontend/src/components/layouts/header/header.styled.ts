@@ -1,7 +1,7 @@
-
 import styled from "styled-components";
 
-import { colors } from "../../../style";
+import { colors } from "@/style";
+
 import { IHeaderProps } from "./header.types";
 
 const Header = styled.header<IHeaderProps>`

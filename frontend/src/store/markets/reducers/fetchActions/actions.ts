@@ -1,14 +1,17 @@
 import { ActionReducerMapBuilder } from "@reduxjs/toolkit"
-import { ImarketModel, statuses } from "../../../../constants";
+
+import { ImarketModel, statuses } from "@/constants";
+
 import { IinitState } from "../../marketSlice.types";
+
 import { sortMarkets } from "../../utils";
 
 import { marketsFetches } from "./fetches"
 
-
 export const fetchActions = (builder: ActionReducerMapBuilder<IinitState>) => {
     const { fetchCreateMarkets, fetchDeleteMarket, fetchMarkets, fetchUpdateMarket } = marketsFetches
     builder
+        // get data
         .addCase(fetchMarkets.pending, (state, action) => {
             state.status = statuses.LOADING;
         })
@@ -27,6 +30,7 @@ export const fetchActions = (builder: ActionReducerMapBuilder<IinitState>) => {
             state.status = statuses.FAILED;
             state.error = action.error.message;
         })
+
         // add data
         .addCase(fetchCreateMarkets.pending, (state, action) => {
             state.status = statuses.LOADING;
@@ -54,6 +58,7 @@ export const fetchActions = (builder: ActionReducerMapBuilder<IinitState>) => {
             state.status = statuses.FAILED;
             state.error = action.error.message;
         })
+
         // edit data
         .addCase(fetchUpdateMarket.pending, (state, action) => {
             state.status = statuses.LOADING;
@@ -75,6 +80,7 @@ export const fetchActions = (builder: ActionReducerMapBuilder<IinitState>) => {
             state.status = statuses.FAILED;
             state.error = action.error.message;
         })
+
         // delete data
         .addCase(fetchDeleteMarket.pending, (state, action) => {
             state.status = statuses.LOADING;

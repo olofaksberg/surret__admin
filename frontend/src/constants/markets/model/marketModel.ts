@@ -32,4 +32,3 @@ export const marketModel: ImarketModel = {
     img: false,
     products: []
 }
-// [...state.newMarket.products, action.payload.product]

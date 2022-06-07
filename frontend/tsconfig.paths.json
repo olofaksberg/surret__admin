@@ -5,15 +5,6 @@
             "@/*": [
                 "./src/*"
             ],
-            // "@/markets/*": [
-            //     "./src/components/pages/markets/*"
-            // ],
-            // "@/products/*": [
-            //     "./src/components/pages/products/*"
-            // ],
-            // "@/orders/*": [
-            //     "./src/components/pages/orders/*"
-            // ]
         }
     }
 }

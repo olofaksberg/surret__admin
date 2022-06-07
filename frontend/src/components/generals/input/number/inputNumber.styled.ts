@@ -2,7 +2,8 @@
 
 import styled from "styled-components";
 
-import { colors } from "../../../../style";
+import { colors } from "@/style";
+
 import { IInputNumberProps } from "./inputNumber.types";
 
 const Div = styled.div<IInputNumberProps>`

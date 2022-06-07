@@ -1,4 +1,3 @@
-
 export const clientEndpoints = (id?: string | number) => {
     return {
         MARKETS: {

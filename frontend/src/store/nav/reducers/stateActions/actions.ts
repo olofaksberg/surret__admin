@@ -1,4 +1,3 @@
-
 import { IinitState } from "../../navSlice.types";
 
 interface Iaction {

@@ -1,4 +1,5 @@
-import { IproductModel, productModel } from "../../../../constants";
+import { IproductModel, productModel } from "@/constants";
+
 import { IinitState } from "../../productsSlice.types";
 
 interface Iaction {
@@ -7,6 +8,7 @@ interface Iaction {
 }
 
 export const stateActions = {
+    // modify newProduct
     setName: (state: IinitState, action: Iaction) => {
         state.newProduct.name = action.payload;
     },

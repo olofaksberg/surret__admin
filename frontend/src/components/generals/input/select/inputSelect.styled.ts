@@ -2,7 +2,8 @@
 
 import styled from "styled-components";
 
-import { colors } from "../../../../style";
+import { colors } from "@/style";
+
 import { IInputSelectProps } from "./inputSelect.types";
 
 const Div = styled.div<IInputSelectProps>`

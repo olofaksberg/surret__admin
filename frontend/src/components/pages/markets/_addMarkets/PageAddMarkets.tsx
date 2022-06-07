@@ -1,11 +1,9 @@
 /** @format */
 
-// imports
-// - general
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-// - components
+
 import { MarketsAdded } from "./components";
 import { AddMarketProducts, ProductListed } from "@/components/pages";
 import {
@@ -18,28 +16,22 @@ import {
  InputTime,
 } from "@/components/generals";
 import { If } from "@/components/helpers";
-// - constants
-import { buttonMainTypes, clientEndpoints, statuses } from "@/constants";
-// - utils
+
+import { buttonMainTypes, clientEndpoints } from "@/constants";
+
 import { useHandleMarkets } from "../utils";
 import { imageSource } from "@/utils";
-// - store
-import {
- marketsActions,
- marketsData,
-} from "@/store/markets";
-// - style
+
+import { marketsActions, marketsData } from "@/store/markets";
+
 import { Styled } from "./pageAddMarkets.styled";
 import { IPageAddMarketsProps } from "./pageAddMarkets.types";
-// ---
 
 export const PageAddMarkets = (props: IPageAddMarketsProps) => {
  const dispatch = useDispatch();
  const navigate = useNavigate();
 
- const { newMarkets, newMarket, 
-  // marketsStatus
- } = useSelector(marketsData);
+ const { newMarkets, newMarket } = useSelector(marketsData);
 
  const {
   resetNewMarket,
@@ -59,10 +51,6 @@ export const PageAddMarkets = (props: IPageAddMarketsProps) => {
   dispatch(resetNewMarket(null));
  }, []);
 
-//  if (marketsStatus === statuses.LOADING) {
-//   return <h2>lägger upp murket..</h2>;
-//  }
-
  return (
   <Styled.Section {...props}>
    <ButtonBack
@@ -70,12 +58,10 @@ export const PageAddMarkets = (props: IPageAddMarketsProps) => {
     action={() => navigate(clientEndpoints().MARKETS.MAIN)}
    />
 
-   {/* added markets */}
    <If condition={newMarkets.length > 0}>
     <MarketsAdded />
    </If>
 
-   {/* form */}
    <section className="form flex FD-C AI-C p-left-7 p-right-7">
     <h1 className="TA-C">Ny marknad</h1>
     <InputImage
@@ -108,7 +94,6 @@ export const PageAddMarkets = (props: IPageAddMarketsProps) => {
        reference={ref}
        action={(e) => dispatch(setDate(e.target.value))}
       />
-      {/* input starttime */}
       <InputTime
        name={"start"}
        label={"Starttid:"}
@@ -116,7 +101,6 @@ export const PageAddMarkets = (props: IPageAddMarketsProps) => {
        reference={ref}
        action={(e) => dispatch(setStartTime(e.target.value))}
       />
-      {/* input endtime */}
       <InputTime
        name={"end"}
        label={"Sluttid:"}
@@ -126,11 +110,9 @@ export const PageAddMarkets = (props: IPageAddMarketsProps) => {
       />
      </div>
 
-     {/* market products */}
      <If condition={newMarket.products.length > 0}>
       <div className="products-info w-50">
        <h3>Produkter:</h3>
-
        <ButtonToggle
         text={
          showProductsState.showProducts
@@ -144,7 +126,7 @@ export const PageAddMarkets = (props: IPageAddMarketsProps) => {
 
        <If condition={showProductsState.showProducts}>
         <div className="flex FD-C FG-1 p-left-1 p-top-1">
-         {newMarket.products.map((p:any, i:number) => {
+         {newMarket.products.map((p: any, i: number) => {
           return (
            <div className="flex FG-1 pos-R">
             <ButtonMain
@@ -178,15 +160,12 @@ export const PageAddMarkets = (props: IPageAddMarketsProps) => {
 
     <hr />
 
-    {/* add market products */}
     <AddMarketProducts />
 
     <hr />
 
-    {/* fail message */}
     <If condition={failMessage}>{failMessage}</If>
 
-    {/* add button */}
     <ButtonMain
      buttonType={buttonMainTypes.ADD}
      text="lägg till marknad"

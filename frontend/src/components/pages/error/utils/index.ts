@@ -1,1 +1,1 @@
-export * from "./useHandlePageError"
+export * from "./getContent"

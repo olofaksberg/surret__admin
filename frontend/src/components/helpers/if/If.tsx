@@ -1,7 +1,8 @@
-import { IIfProps } from "./if.types"
+/** @format */
+
+import { IIfProps } from "./if.types";
 
 export const If = (props: IIfProps) => {
-  const { condition, children } = props;
-    return <>{condition && children}</>;
-  };
-  
+ const { condition, children } = props;
+ return <>{condition && children}</>;
+};

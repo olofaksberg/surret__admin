@@ -2,7 +2,8 @@
 
 import styled from "styled-components";
 
-import { colors } from "../../../../style";
+import { colors } from "@/style";
+
 import { IPageMainOrdersProps } from "./pageMainOrders.types";
 
 const Section = styled.section<IPageMainOrdersProps>`

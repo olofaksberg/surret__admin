@@ -2,7 +2,8 @@
 
 import styled from "styled-components";
 
-import { colors } from "../../../../style";
+import { colors } from "@/style";
+
 import { IPageAddMarketsProps } from "./pageAddMarkets.types";
 
 const Section = styled.section<IPageAddMarketsProps>`

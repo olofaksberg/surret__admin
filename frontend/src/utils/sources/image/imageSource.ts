@@ -5,8 +5,6 @@ export const imageSource: IimageSource = (d) => {
         return d.imgURI
             ? d.imgURI
             : process.env.REACT_APP_MODE === "dev"
-                // ? "/uploads/" + d.imgId
-                // : "/uploads/" + d.imgId;
                 ? "/" + d.imgId
                 : "/" + d.imgId;
     } else {

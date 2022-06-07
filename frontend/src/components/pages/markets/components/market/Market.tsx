@@ -4,23 +4,23 @@
 // - general
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-// - components
-import { ProductListed } from "../../../products";
-import { ButtonMain, ButtonToggle, Image } from "../../../../generals";
-import { If } from "../../../../helpers";
-// - contants
-import { buttonMainTypes, clientEndpoints } from "../../../../../constants";
-// - utils
+
+import { ProductListed } from "@/components/pages/products";
+import { ButtonMain, ButtonToggle, Image } from "@/components/generals";
+import { If } from "@/components/helpers";
+
+import { buttonMainTypes, clientEndpoints } from "@/constants";
+
 import { useHandleMarkets } from "../../utils";
-// - store
-import { marketsActions } from "../../../../../store/markets/marketsSlice";
-// - style
+
+import { marketsActions } from "@/store/markets";
+
 import { Styled } from "./market.styled";
 import { ImarketProps } from "./market.types";
-// ---
 
 export const Market = (props: ImarketProps) => {
-    const { market, editable, index } = props;
+ const { market, editable, index } = props;
+
  const navigate = useNavigate();
  const dispatch = useDispatch();
 
@@ -51,7 +51,6 @@ export const Market = (props: ImarketProps) => {
       </li>
      </ul>
 
-     {/* market products */}
      <If condition={market?.products && market.products.length > 0}>
       <div className="products-info">
        <h3>Produkter:</h3>
@@ -69,8 +68,13 @@ export const Market = (props: ImarketProps) => {
 
        <If condition={showProductsState.showProducts}>
         <div className="flex FD-C FG-1 p-left-1 p-top-1">
-         {market.products?.map((p: any, i:number) => {
-          return <ProductListed product={p} last={market.products && i !== market.products.length - 1} />;
+         {market.products?.map((p: any, i: number) => {
+          return (
+           <ProductListed
+            product={p}
+            last={market.products && i !== market.products.length - 1}
+           />
+          );
          })}
         </div>
        </If>
@@ -78,19 +82,25 @@ export const Market = (props: ImarketProps) => {
      </If>
     </div>
 
-    {/* button */}
     <If condition={!!editable}>
-     <ButtonMain buttonType={buttonMainTypes.EDIT} text={"redigera"} action={() => navigate(clientEndpoints(market._id).MARKETS.EDIT)
-      } />
+     <ButtonMain
+      buttonType={buttonMainTypes.EDIT}
+      text={"redigera"}
+      action={() => navigate(clientEndpoints(market._id).MARKETS.EDIT)}
+      customStyle="margin-top: 1.5rem;"
+     />
     </If>
-    <If condition={!editable}>
 
-     <ButtonMain buttonType={buttonMainTypes.REMOVE} text={"ta bort"} action={() => dispatch(deleteNewMarket(index))
-      } />
+    <If condition={!editable}>
+     <ButtonMain
+      buttonType={buttonMainTypes.REMOVE}
+      text={"ta bort"}
+      action={() => dispatch(deleteNewMarket(index))}
+      customStyle="margin-top: 1.5rem;"
+     />
     </If>
    </div>
 
-   {/* image */}
    <Image obj={market} customStyle={"align-self: start"} />
   </Styled.Section>
  );

@@ -2,6 +2,7 @@
 import styled from "styled-components";
 
 import { colors } from "@/style";
+
 import { IButtonToggleProps } from "./buttonToggle.types";
 
 const Button = styled.button<IButtonToggleProps>`

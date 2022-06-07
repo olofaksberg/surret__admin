@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-import { colors } from "../../../style";
+import { colors } from "@/style";
+
 import { IPageErrorProps } from "./pageError.types";
 
 const Section = styled.section<IPageErrorProps>`

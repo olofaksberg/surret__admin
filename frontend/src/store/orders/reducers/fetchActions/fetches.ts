@@ -1,11 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { apiEndpoints } from "../../../../constants";
+
+import { apiEndpoints } from "@/constants";
+
 import {
     PROTECTED_GET,
     PROTECTED_POST,
-} from "../../../../utils";
+} from "@/utils";
 
-// fetches
 const fetchOrders = createAsyncThunk("fetchOrders", async () => {
     let res = await PROTECTED_GET(apiEndpoints().ORDERS.GET_ALL);
     return res;

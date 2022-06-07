@@ -1,11 +1,3 @@
-// export const iconClassnames = {
-//     ADD: "fa-plus",
-//     EDIT: "fa-plus",
-//     REMOVE: "fa-xmark",
-//     CONFIRM: "fa-check",
-//     DELETE: "fa-trash-can",
-// }
-
 import { colors } from "@/style";
 
 export const buttonMainTypes = {

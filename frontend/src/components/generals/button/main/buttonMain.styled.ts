@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-import { IButtonMainProps } from "./buttonMain.types";
+import { buttonMainTypes } from "@/constants";
 
 import { colors } from "@/style"
-import { buttonMainTypes } from "@/constants";
+
+import { IButtonMainProps } from "./buttonMain.types";
 
 const Button = styled.button<IButtonMainProps>`
   width: fit-content;

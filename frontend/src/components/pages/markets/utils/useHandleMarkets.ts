@@ -1,15 +1,13 @@
 /** @format */
 
-// imports
-// - general
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-// - constants
-import { clientEndpoints } from "../../../../constants";
-// - utils
-import { useArrayRef } from "../../../../utils";
-// - store
+
+import { clientEndpoints } from "@/constants";
+
+import { useArrayRef } from "@/utils";
+
 import {
   marketsFetches,
   marketsActions,
@@ -18,14 +16,16 @@ import {
 export const useHandleMarkets = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { fetchDeleteMarket, fetchUpdateMarket } = marketsFetches
-  const { addNewMarket } = useSelector(marketsActions);
 
   const [failMessage, setFailMessage] = useState<boolean>(false);
   const [showNewMarkets, setShowNewMarkets] = useState<boolean>(false);
   const [showProducts, setShowProducts] = useState<boolean>(false);
 
   const [inputs, ref] = useArrayRef();
+
+  const { addNewMarket } = useSelector(marketsActions);
+  const { fetchDeleteMarket, fetchUpdateMarket } = marketsFetches
+
 
   const isAdded = (obj: any, p: any) => (obj.products.includes(p) ? true : false);
 
@@ -40,12 +40,7 @@ export const useHandleMarkets = () => {
         setFailMessage(false);
       }
     } else {
-      setFailMessage(true
-        //   <div className="field-missing" >
-        // <i class="fa-solid fa-circle-exclamation" > </i>Ett obligatoriskt fält
-        //     saknar värde
-        // < /div>
-      );
+      setFailMessage(true);
     }
   };
 
@@ -65,12 +60,7 @@ export const useHandleMarkets = () => {
         navigate(clientEndpoints().MARKETS.MAIN);
       }
     } else {
-      setFailMessage(true
-        //   <div className="field-missing" >
-        // <i class="fa-solid fa-circle-exclamation" > </i>Ett obligatoriskt fält
-        //     saknar värde
-        // < /div>
-      );
+      setFailMessage(true);
     }
   };
 

@@ -2,7 +2,6 @@
 
 import styled from "styled-components";
 
-import { colors } from "../../../../style";
 import { IInputDateProps } from "./inputDate.types";
 
 const Div = styled.div<IInputDateProps>`

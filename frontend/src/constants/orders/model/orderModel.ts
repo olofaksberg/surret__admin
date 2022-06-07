@@ -18,15 +18,3 @@ export interface IorderModel {
     },
     products?: Array<IproductModel>,
 }
-
-// export const orderModel: IorderModel = {
-//     name: "",
-//     category: "",
-//     balance: null,
-//     price: null,
-//     content: "",
-//     orderAmount: null,
-//     imgId: false,
-//     imgURI: false,
-//     img: false,
-// }

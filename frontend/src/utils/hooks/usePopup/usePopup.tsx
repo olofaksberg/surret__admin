@@ -1,12 +1,13 @@
 /** @format */
 
-import { marketsActions, marketsData } from "@/store/markets";
-import { ordersActions, ordersData } from "@/store/orders/ordersSlice";
-import { productsActions, productsData } from "@/store/products/productsSlice";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Popup } from "@/components/layouts";
+
+import { marketsActions, marketsData } from "@/store/markets";
+import { ordersActions, ordersData } from "@/store/orders/ordersSlice";
+import { productsActions, productsData } from "@/store/products/productsSlice";
 
 export const usePopup = (initValue: any) => {
  const dispatch = useDispatch();

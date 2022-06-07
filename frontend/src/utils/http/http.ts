@@ -1,9 +1,9 @@
 
-import { headers } from "../../constants"
+import { headers } from "@/constants"
+
 import { IGET, IPOST } from "./http.types";
 
 const api_address = process.env.REACT_APP_API_ADDRESS_DEV;
-// const api_address = "https://surret-admin.herokuapp.com";
 
 export const GET: IGET = async (endpoint, signal) => {
     try {

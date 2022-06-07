@@ -1,5 +1,5 @@
-// import { WritableDraft } from "immer/dist/types/types-external";
-import { ImarketModel, IproductModel, marketModel } from "../../../../constants";
+import { ImarketModel, IproductModel, marketModel } from "@/constants";
+
 import { IinitState } from "../../marketSlice.types";
 
 interface Iaction {

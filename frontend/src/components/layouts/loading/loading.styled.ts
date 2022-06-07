@@ -1,6 +1,4 @@
-
 import styled from "styled-components";
-
 
 const Section = styled.section`
 background: rgba(0, 0, 0, 0.65);

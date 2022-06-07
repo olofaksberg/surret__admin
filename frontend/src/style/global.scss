@@ -24,6 +24,10 @@ $fontGreyDD: rgb(65, 65, 65);
  word-break: break-word;
 }
 
+h1 {
+ text-transform: uppercase;
+}
+
 // animations
 @keyframes showAni {
  0% {

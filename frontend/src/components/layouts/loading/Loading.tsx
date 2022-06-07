@@ -2,7 +2,8 @@
 
 import { Styled } from "./loading.styled";
 
-const bi = require("../../../images/bee.png");
+const bi = require("@/images/bee.png");
+
 export const Loading = () => {
  return (
   <Styled.Section>

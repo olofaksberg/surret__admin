@@ -1,5 +1,7 @@
 import { ActionReducerMapBuilder } from "@reduxjs/toolkit";
-import { IproductModel, statuses } from "../../../../constants";
+
+import { IproductModel, statuses } from "@/constants";
+
 import { IinitState } from "../../productsSlice.types";
 import { productsFetches } from "./fetches";
 

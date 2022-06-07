@@ -1,7 +1,5 @@
-
 import styled from "styled-components";
 
-import { colors } from "../../../../../style";
 import { INotificationProps } from "./notification.types";
 
 const Span = styled.span<INotificationProps>`

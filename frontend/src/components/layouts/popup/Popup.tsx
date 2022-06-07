@@ -1,13 +1,11 @@
 /** @format */
 
-// imports
-// - components
 import { ButtonMain } from "@/components/generals";
-// - utils
-// - style
+
+import { buttonMainTypes } from "@/constants";
+
 import { Styled } from "./popup.styled";
 import { IPopupProps } from "./popup.types";
-import { buttonMainTypes } from "@/constants";
 
 export const Popup = (props: IPopupProps) => {
  const { message, action } = props;
@@ -20,7 +18,6 @@ export const Popup = (props: IPopupProps) => {
     return "fail fa-circle-xmark";
   }
  };
- console.log(message);
 
  return (
   <Styled.Section {...props}>

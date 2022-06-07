@@ -1,15 +1,11 @@
 /** @format */
 
-// imports
-// - general
 import { createSlice } from "@reduxjs/toolkit";
-import { stateActions, fetchActions } from "./reducers"
-// - utils
 
 import { marketModel, statuses } from "@/constants";
-import { IinitState } from "./marketSlice.types"
 
-// ---
+import { stateActions, fetchActions } from "./reducers"
+import { IinitState } from "./marketSlice.types"
 
 // slice
 const initialState: IinitState = {
@@ -48,7 +44,6 @@ export const marketsActions = () => {
     setProducts: origin.setProducts,
   };
 };
-
 
 // export data
 export const marketsData = (state: any) => {

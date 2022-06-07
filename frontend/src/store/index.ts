@@ -1,13 +1,9 @@
-// imports
-// - general
-
 import { configureStore } from '@reduxjs/toolkit'
 import productsReducer from "./products/productsSlice"
 import marketsReducer from "./markets/marketsSlice"
 import ordersReducer from "./orders/ordersSlice"
 import navReducer from "./nav/navSlice"
 
-// ...
 const store = configureStore({
     reducer: {
         markets: marketsReducer,

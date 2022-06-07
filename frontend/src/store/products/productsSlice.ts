@@ -1,20 +1,11 @@
 /** @format */
 
-// imports
-// - general
 import { createSlice } from "@reduxjs/toolkit";
 
-// - utils
-import { productModel, statuses } from "../../constants";
+import { productModel, statuses } from "@/constants";
 
 import { IinitState } from "./productsSlice.types"
 import { stateActions, fetchActions } from "./reducers"
-// ---
-
-
-// slice
-
-
 
 const initialState: IinitState = {
   products: [],

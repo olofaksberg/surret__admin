@@ -1,13 +1,15 @@
 /** @format */
 
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+
+import { Loading } from "@/components/layouts";
+
+import { statuses } from "@/constants";
 
 import { productsData } from "@/store/products";
 import { ordersData } from "@/store/orders";
 import { marketsData } from "@/store/markets";
-import { statuses } from "@/constants";
-import { useEffect, useState } from "react";
-import { Loading } from "@/components/layouts";
 
 export const useLoading = (initValue: any) => {
  const { productsStatus } = useSelector(productsData);
@@ -21,7 +23,7 @@ export const useLoading = (initValue: any) => {
  useEffect(() => {
   if (sliceStates.includes(statuses.LOADING)) setLoading(<Loading />);
   else setLoading(false);
- }, [sliceStates]);
+ }, [productsStatus, ordersStatus, marketsStatus]);
 
  return [!!loading, loading];
 };

@@ -1,9 +1,11 @@
 import { ActionReducerMapBuilder } from "@reduxjs/toolkit"
-import { ImarketModel, orderCategories, statuses } from "../../../../constants";
-import { IinitState } from "../../ordersSlice.types";
 
-import { ordersFetches } from "./fetches"
+import { orderCategories, statuses } from "@/constants";
+
+import { IinitState } from "../../ordersSlice.types";
 import { sortOrders } from "../../utils";
+import { ordersFetches } from "./fetches"
+
 
 export const fetchActions = (builder: ActionReducerMapBuilder<IinitState>) => {
     const {
@@ -11,7 +13,6 @@ export const fetchActions = (builder: ActionReducerMapBuilder<IinitState>) => {
         fetchUpdateOrderStatus,
         fetchOldOrders,
         fetchActiveOrders,
-        fetchOrders,
     } = ordersFetches;
 
     builder
@@ -62,7 +63,6 @@ export const fetchActions = (builder: ActionReducerMapBuilder<IinitState>) => {
                 state.status = statuses.SUCCEEDED;
                 // state.oldOrders.data.push(data);
                 // state.activeOrders = state.activeOrders.filter((d: any) => d._id !== data._id);
-
                 state.orders[state.orders.findIndex((d: any) => d._id === data._id)] = data;
                 state.message = message;
             } else {

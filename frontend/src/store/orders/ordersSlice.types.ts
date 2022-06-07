@@ -1,4 +1,4 @@
-import { IorderModel } from "../../constants";
+import { IorderModel } from "@/constants";
 
 export interface IinitState {
     orders: Array<IorderModel>,

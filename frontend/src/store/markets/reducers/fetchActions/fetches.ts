@@ -1,11 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { apiEndpoints, ImarketModel } from "../../../../constants";
+
+import { apiEndpoints, ImarketModel } from "@/constants";
+
 import {
     GET,
     PROTECTED_GET,
     PROTECTED_POST_FORMDATA,
-} from "../../../../utils";
-// fetches
+} from "@/utils";
+
 const fetchMarkets = createAsyncThunk("fetchMarkets", async () => {
     const res = await GET(apiEndpoints().MARKETS.GET_ALL);
     return res;
