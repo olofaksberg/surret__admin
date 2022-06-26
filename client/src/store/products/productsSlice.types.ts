@@ -1,9 +1,9 @@
 import { IproductModel } from "@/constants";
 
 export interface IinitState {
-    products: Array<IproductModel>,
+    products: IproductModel[],
     newProduct: IproductModel,
-    newProducts: Array<IproductModel>,
+    newProducts: IproductModel[],
     status: number,
     error: any,
     message: any,

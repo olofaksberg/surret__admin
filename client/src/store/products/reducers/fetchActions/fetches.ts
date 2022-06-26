@@ -16,7 +16,7 @@ const fetchProducts = createAsyncThunk("fetchProducts", async () => {
 const fetchCreateProducts = createAsyncThunk(
     "fetchCreateProducts",
     async (newProducts: {
-        data: Array<IproductModel>,
+        data: IproductModel[],
         images?: any,
     }) => {
         const formData = new FormData();

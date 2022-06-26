@@ -1,6 +1,6 @@
 /** @format */
 
-export const dev = false;
+// export const dev = process.env.MODE;
 
 export const resMessages = (data) => {
  return {

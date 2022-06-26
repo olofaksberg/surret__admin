@@ -1,4 +1,4 @@
 export interface IIfProps {
     condition: boolean;
-    children: any;
+    children: JSX.Element;
 }

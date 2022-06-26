@@ -1,9 +1,8 @@
 /** @format */
 
 import multer from "multer";
-import { dev } from "../utils/constants.js";
 
-const DIR = dev ? "./client/public/" : "./client/build/";
+const DIR = "./client/public/";
 
 const storage = multer.diskStorage({
  destination: (req, file, cb) => {

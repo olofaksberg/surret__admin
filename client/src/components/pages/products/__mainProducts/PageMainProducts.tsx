@@ -6,16 +6,16 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // - components
 import { ProductMain, ProductsNav } from "../components";
-import { Header, Popup } from "../../../layouts";
-import { If } from "../../../helpers";
+import { Header } from "@/components/layouts";
+import { If } from "@/components/helpers";
 // - config
 // - constants
-import { clientEndpoints, statuses } from "../../../../constants";
+import { clientEndpoints, statuses } from "@/constants";
 // - utils
 import { useHandleProducts } from "../utils";
 // - store
-import { productsData } from "../../../../store/products/productsSlice";
-import { navActions } from "../../../../store/nav/navSlice";
+import { productsData } from "@/store/products";
+import { navActions } from "@/store/nav";
 // - style
 import { Styled } from "./pageMainProducts.styled";
 import { IPageMainProductsProps } from "./pageMainProducts.types";
@@ -46,17 +46,14 @@ export const PageMainProducts = (props: IPageMainProductsProps) => {
 
    {/* header */}
 
-   <Header
-    title="produkter"
-    buttonRoute={clientEndpoints().PRODUCTS.ADD}
-   />
+   <Header title="produkter" buttonRoute={clientEndpoints().PRODUCTS.ADD} />
 
    {/* products nav */}
    <ProductsNav productsFilterState={productsFilterState} />
 
    {/* products */}
    <div className="flex FG-3 JC-C FW-wrap p-1">
-    {products.map((d:any, i:number) => {
+    {products.map((d: any, i: number) => {
      return <ProductMain product={d} />;
     })}
    </div>

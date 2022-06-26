@@ -16,5 +16,5 @@ export interface IorderModel {
         contact: string,
         comment?: string,
     },
-    products?: Array<IproductModel>,
+    products?: IproductModel[],
 }

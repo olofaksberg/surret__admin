@@ -15,20 +15,22 @@ import {
  InputSelect,
  InputText,
  InputTextarea,
-} from "../../../generals";
-import { If } from "../../../helpers";
+} from "@/components/generals";
+import { If } from "@/components/helpers";
 // - config
-import { productCategories, clientEndpoints, statuses, buttonMainTypes } from "../../../../constants";
+import {
+ productCategories,
+ clientEndpoints,
+ statuses,
+ buttonMainTypes,
+} from "@/constants";
 // - constants
 // - utils
-import { useHandleProducts } from "../utils/useHandleProducts";
+import { useHandleProducts } from "../utils/useHandleProducts/useHandleProducts";
 // - utils
-import { imageSource } from "../../../../utils";
+import { imageSource } from "@/utils";
 // - store
-import {
- productsActions,
- productsData,
-} from "../../../../store/products/productsSlice";
+import { productsActions, productsData } from "@/store/products";
 // - style
 import { Styled } from "./pageAddProducts.styled";
 import { IPageAddProductsProps } from "./pageAddProducts.types";
@@ -121,11 +123,19 @@ export const PageAddProducts = (props: IPageAddProductsProps) => {
 
     {/* fail message */}
     <If condition={failMessage}>
-        <div className="field-missing"><i className="fa-solid fa-circle-exclamation"></i>Ett obligatoriskt fält saknar värde</div>
+     <div className="field-missing">
+      <i className="fa-solid fa-circle-exclamation"></i>Ett obligatoriskt fält
+      saknar värde
+     </div>
     </If>
 
     {/* add button */}
-    <ButtonMain buttonType={buttonMainTypes.ADD} text="lägg till" action={() => add()} customStyle={"align-self: center;"} />
+    <ButtonMain
+     buttonType={buttonMainTypes.ADD}
+     text="lägg till"
+     action={() => add()}
+     customStyle={"align-self: center;"}
+    />
    </section>
   </Styled.Section>
  );

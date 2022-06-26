@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 // - contants
-import { clientEndpoints, IproductModel } from "../../../../constants";
+import { clientEndpoints, IproductModel } from "../../../../../constants";
 // - utils
-import { useArrayRef } from "../../../../utils";
+import { useArrayRef } from "../../../../../utils";
 // - store
 import {
   productsActions,
@@ -26,7 +26,7 @@ export const useHandleProducts = () => {
     fetchUpdateProduct } = productsFetches;
   const [failMessage, setFailMessage] = useState<boolean>(false);
   const [showNewProducts, setShowNewProducts] = useState<boolean>(false);
-  const [products, setProducts] = useState<Array<IproductModel>>(allProducts);
+  const [products, setProducts] = useState<IproductModel[]>(allProducts);
   const [productsFilter, setProductsFilter] = useState<string>("All");
 
   const [inputs, ref] = useArrayRef();
@@ -48,12 +48,7 @@ export const useHandleProducts = () => {
         setFailMessage(false);
       }
     } else {
-      setFailMessage(true
-        //   <div className="field-missing" >
-        // <i class="fa-solid fa-circle-exclamation"> </i>Ett obligatoriskt fält
-        //     saknar värde
-        // </div>
-      );
+      setFailMessage(true);
     }
   };
 

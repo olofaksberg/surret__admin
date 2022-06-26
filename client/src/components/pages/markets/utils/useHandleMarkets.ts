@@ -24,7 +24,7 @@ export const useHandleMarkets = () => {
   const [inputs, ref] = useArrayRef();
 
   const { addNewMarket } = useSelector(marketsActions);
-  const { fetchDeleteMarket, fetchUpdateMarket } = marketsFetches
+  const { fetchDeleteMarket, fetchUpdateMarket } = marketsFetches;
 
 
   const isAdded = (obj: any, p: any) => (obj.products.includes(p) ? true : false);

@@ -50,13 +50,15 @@ export const App = () => {
  }
 
  return (
-  <>
-   <If condition={!!isPopup}>{popupComponent}</If>
+  <div role={"approot"}>
+   <If condition={!!isPopup}>
+    <>{popupComponent}</>
+   </If>
 
    <Router>
     <Sidebar />
     <AppRoutes />
    </Router>
-  </>
+  </div>
  );
 };

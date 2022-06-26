@@ -1,7 +1,7 @@
 import { IorderModel } from "@/constants";
 
 export interface IinitState {
-    orders: Array<IorderModel>,
+    orders: IorderModel[],
     oldFetched: boolean,
     status: number,
     error: any,

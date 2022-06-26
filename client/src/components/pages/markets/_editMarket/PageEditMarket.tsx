@@ -15,6 +15,7 @@ import {
  InputText,
  InputTime,
 } from "@/components/generals";
+import { Loading } from "@/components/layouts";
 import { If } from "@/components/helpers";
 
 import { buttonMainTypes, clientEndpoints } from "@/constants";
@@ -26,7 +27,6 @@ import { marketsActions, marketsData } from "@/store/markets";
 
 import { Styled } from "./pageEditMarket.styled";
 import { IPageEditMarketProps } from "./pageEditMarket.types";
-import { Loading } from "@/components/layouts";
 
 export const PageEditMarket = (props: IPageEditMarketProps) => {
  const dispatch = useDispatch();
@@ -168,7 +168,12 @@ export const PageEditMarket = (props: IPageEditMarketProps) => {
 
     <hr />
 
-    <If condition={failMessage}>{failMessage}</If>
+    <If condition={failMessage}>
+     <div className="field-missing">
+      <i className="fa-solid fa-circle-exclamation"></i>Ett obligatoriskt fält
+      saknar värde
+     </div>
+    </If>
 
     <div className="flex FG-2">
      <ButtonMain

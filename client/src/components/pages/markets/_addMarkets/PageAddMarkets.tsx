@@ -164,7 +164,12 @@ export const PageAddMarkets = (props: IPageAddMarketsProps) => {
 
     <hr />
 
-    <If condition={failMessage}>{failMessage}</If>
+    <If condition={failMessage}>
+     <div className="field-missing">
+      <i className="fa-solid fa-circle-exclamation"></i>Ett obligatoriskt fält
+      saknar värde
+     </div>
+    </If>
 
     <ButtonMain
      buttonType={buttonMainTypes.ADD}

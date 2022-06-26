@@ -16,7 +16,7 @@ const fetchMarkets = createAsyncThunk("fetchMarkets", async () => {
 const fetchCreateMarkets = createAsyncThunk(
     "fetchCreateMarkets",
     async (newMarkets: {
-        data: Array<ImarketModel> | null,
+        data: ImarketModel[] | null,
         images?: any,
     }) => {
         const formData = new FormData();

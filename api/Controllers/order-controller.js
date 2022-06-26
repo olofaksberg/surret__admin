@@ -6,7 +6,7 @@ import { orderModel } from "../Models/order-model.js";
 import { productModel } from "../Models/product-model.js";
 
 // - utils
-import { resMessages } from "../utils/constants.js";
+import { resMessages } from "../constants/resMessages.js";
 // ---
 
 export const create_order = async (req, res) => {

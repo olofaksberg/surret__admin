@@ -1,3 +1,3 @@
 /** @format */
 
-export * from "./useHandleProducts";
+export * from "./useHandleProducts/useHandleProducts";

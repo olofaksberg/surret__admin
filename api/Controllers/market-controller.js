@@ -6,7 +6,7 @@ import { marketModel } from "../Models/market-model.js";
 import { productModel } from "../Models/product-model.js";
 
 // - utils
-import { resMessages } from "../utils/constants.js";
+import { resMessages } from "../constants/resMessages.js";
 // ---
 
 export const create_markets = async (req, res) => {
@@ -83,6 +83,12 @@ export const delete_all_markets = async (req, res) => {
 export const delete_market = async (req, res) => {
  try {
   const id = req.params.id;
+
+  const market = await marketModel.findById(id).exec();
+  if (market.imgId) {
+   const filePath = "./client/public/" + market.imgId;
+   fs.unlinkSync(filePath);
+  }
   await marketModel.findByIdAndDelete(id).exec();
 
   return res.json(resMessages(id).SUCCESS.MARKET.DELETED);

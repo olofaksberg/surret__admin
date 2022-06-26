@@ -14,6 +14,7 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 80;
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -33,16 +34,21 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.use("/", express.static("./client/public"));
+app.use(
+ "/",
+ express.static(
+  process.env.MODE === "dev" ? "./client/public" : "./client/build"
+ )
+);
 app.use("/protected", protectedMw, protectedRouter);
 app.use("/", index);
 
 app.get("*", (req, res) =>
  res.sendFile("index.html", {
-  root: "./client/build",
+  root: process.env.MODE === "dev" ? "./client/public" : "./client/build",
  })
 );
 
 app.listen(port, () => {
- console.log("lyssnar " + port);
+ console.log("lyssnar, port " + port);
 });

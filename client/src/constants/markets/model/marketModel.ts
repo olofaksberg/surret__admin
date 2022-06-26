@@ -14,7 +14,7 @@ export interface ImarketModel {
     imgId?: string | boolean,
     imgURI?: string | boolean,
     img?: string | boolean,
-    products: Array<IproductModel>
+    products: IproductModel[]
 }
 
 export const marketModel: ImarketModel = {

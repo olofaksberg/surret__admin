@@ -14,20 +14,22 @@ import {
  InputSelect,
  InputText,
  InputTextarea,
-} from "../../../generals";
-import { If } from "../../../helpers";
+} from "@/components/generals";
+import { If } from "@/components/helpers";
 // - config
-import { productCategories, clientEndpoints, statuses, buttonMainTypes } from "../../../../constants";
+import {
+ productCategories,
+ clientEndpoints,
+ statuses,
+ buttonMainTypes,
+} from "@/constants";
 // - constants
 // - utils
-import { useHandleProducts } from "../utils/useHandleProducts";
+import { useHandleProducts } from "../utils/useHandleProducts/useHandleProducts";
 // - utils
-import { imageSource } from "../../../../utils";
+import { imageSource } from "@/utils";
 // - store
-import {
-    productsActions,
-    productsData,
-   } from "../../../../store/products/productsSlice";
+import { productsActions, productsData } from "@/store/products";
 // - style
 import { Styled } from "./pageEditProduct.styled";
 import { IPageEditProductProps } from "./pageEditProduct.types";
@@ -125,13 +127,28 @@ export const PageEditProduct = (props: IPageEditProductProps) => {
     </div>
 
     {/* fail message */}
-    <If condition={failMessage}>{failMessage}</If>
+    <If condition={failMessage}>
+     <div className="field-missing">
+      <i className="fa-solid fa-circle-exclamation"></i>Ett obligatoriskt fält
+      saknar värde
+     </div>
+    </If>
 
     <div className="flex FG-2">
      {/* update button */}
-     <ButtonMain buttonType={buttonMainTypes.CONFIRM} text="uppdatera" action={update} customStyle={"align-self: center;"} />
+     <ButtonMain
+      buttonType={buttonMainTypes.CONFIRM}
+      text="uppdatera"
+      action={update}
+      customStyle={"align-self: center;"}
+     />
      {/* delete button */}
-     <ButtonMain buttonType={buttonMainTypes.DELETE} text="radera" action={remove} customStyle={"align-self: center;"} />
+     <ButtonMain
+      buttonType={buttonMainTypes.DELETE}
+      text="radera"
+      action={remove}
+      customStyle={"align-self: center;"}
+     />
     </div>
    </section>
    {/* </section> */}

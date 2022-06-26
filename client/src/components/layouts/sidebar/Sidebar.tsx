@@ -13,6 +13,8 @@ import { ordersData } from "@/store/orders";
 import { Styled } from "./sidebar.styled";
 import { ISidebarProps } from "./sidebar.types";
 
+import { getNotifications } from "./utils";
+
 const bi = require("@/images/bee.png");
 
 export const Sidebar = (props: ISidebarProps) => {
@@ -21,26 +23,8 @@ export const Sidebar = (props: ISidebarProps) => {
  const { setNotifications } = useSelector(navActions);
  const { orders } = useSelector(ordersData);
 
- const notis = () => {
-  const newOrdersAmount = orders.filter(
-   (d: any, i: number) => !d.status.seen
-  ).length;
-
-  return {
-   ordersNoti:
-    newOrdersAmount > 0
-     ? {
-        main: newOrdersAmount,
-        onHover: newOrdersAmount > 1 ? " NYA ORDRAR" : " NY ORDER",
-       }
-     : null,
-   productsNoti: null,
-   marketsNoti: null,
-  };
- };
-
  useEffect(() => {
-  dispatch(setNotifications(notis()));
+  dispatch(setNotifications(getNotifications({ orders: orders })));
  }, []);
 
  return (
