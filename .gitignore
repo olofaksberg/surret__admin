@@ -1,7 +1,7 @@
 
-frontend/node_modules
-frontend/package-lock.json
-frontend/build
+client/node_modules
+client/package-lock.json
+client/build
 
 node_modules
 package-lock.json
