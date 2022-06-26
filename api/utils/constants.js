@@ -1,6 +1,6 @@
 /** @format */
 
-export const dev = true;
+export const dev = false;
 
 export const resMessages = (data) => {
  return {

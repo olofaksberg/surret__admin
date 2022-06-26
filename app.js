@@ -5,10 +5,10 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 
-import index from "./backend/routers/index.js";
-import protectedRouter from "./backend/routers/protected.js";
+import index from "./api/routers/index.js";
+import protectedRouter from "./api/routers/protected.js";
 
-import { protectedMw } from "./backend/middlewares/protectedMw.js";
+import { protectedMw } from "./api/middlewares/protectedMw.js";
 
 dotenv.config();
 
@@ -33,13 +33,13 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.use("/", express.static("./frontend/public"));
+app.use("/", express.static("./client/public"));
 app.use("/protected", protectedMw, protectedRouter);
 app.use("/", index);
 
 app.get("*", (req, res) =>
  res.sendFile("index.html", {
-  root: "./frontend/build",
+  root: "./client/build",
  })
 );
 

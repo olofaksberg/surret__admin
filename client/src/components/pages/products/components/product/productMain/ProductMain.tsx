@@ -24,7 +24,7 @@ export const ProductMain = (props: IproductMainProps) => {
    <Image
     obj={product}
     customStyle="align-self: center; max-height: calc(25 * 0.6rem);
-    border-radius: 10px 10px 0 0;"
+    border-radius: 10px 10px 0 0; img {max-height: inherit;}"
    />
 
    <div className="flex FD-C">
