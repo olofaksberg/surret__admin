@@ -1,8 +1,10 @@
+import { ChangeEvent } from "react";
+
 export interface IInputDateProps {
     name: string;
     label: string;
-    value: any;
-    reference?: any;
-    action: (e: any) => void;
+    value: string;
+    reference?: (el: HTMLInputElement) => void;
+    action: (e: ChangeEvent<HTMLInputElement>) => void;
     customStyle?: string
 }

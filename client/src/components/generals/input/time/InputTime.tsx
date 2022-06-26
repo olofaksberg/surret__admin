@@ -9,6 +9,7 @@ export const InputTime = (props: IInputTimeProps) => {
   <Styled.Div {...props}>
    <label>{label}</label>
    <input
+    onClick={(e) => console.log(e)}
     type={"time"}
     name={name}
     ref={reference}
